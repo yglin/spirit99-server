@@ -1,0 +1,872 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"md-list",
+				"md-list-item"
+			],
+			[
+				"select",
+				"selectedPaneIndex"
+			],
+			[
+				"md-too",
+				"md-tooltip"
+			],
+			[
+				"tods",
+				"todos"
+			],
+			[
+				"todos",
+				"todosInStore"
+			],
+			[
+				"local",
+				"localStorageService"
+			],
+			[
+				"add",
+				"addClass	jQuery"
+			],
+			[
+				"slide",
+				"slideButtonIcon"
+			],
+			[
+				"new",
+				"newMarker"
+			],
+			[
+				"result",
+				"resultContainer"
+			],
+			[
+				"cir",
+				"circle	jsProp"
+			],
+			[
+				"resul",
+				"resultContainer"
+			],
+			[
+				"resu",
+				"resultContainer"
+			],
+			[
+				"search",
+				"searchUrl"
+			],
+			[
+				"ra",
+				"radius"
+			],
+			[
+				"creating",
+				"creatingMarkerIcon"
+			],
+			[
+				"mark",
+				"markerIcon"
+			],
+			[
+				"$lo",
+				"$logProvider	AngularJS"
+			],
+			[
+				"$local",
+				"$localStorage"
+			],
+			[
+				"var",
+				"var_export"
+			],
+			[
+				"query",
+				"queryString"
+			],
+			[
+				"on",
+				"onCircleChanged"
+			],
+			[
+				"circle",
+				"circleObject"
+			],
+			[
+				"story",
+				"storyID"
+			],
+			[
+				"con",
+				"controller"
+			],
+			[
+				"show",
+				"showDetail"
+			],
+			[
+				"post",
+				"postData"
+			],
+			[
+				"err",
+				"errorThrown"
+			],
+			[
+				"story-cre",
+				"story-create-form"
+			],
+			[
+				"stor",
+				"story-create-form"
+			],
+			[
+				"fie",
+				"fieldContext"
+			],
+			[
+				"d",
+				"div"
+			],
+			[
+				"status",
+				"statusText"
+			],
+			[
+				"cons",
+				"console	jsProp"
+			],
+			[
+				"template",
+				"templateCreateNewStory"
+			],
+			[
+				"templ",
+				"templateCreateNewStory"
+			],
+			[
+				"serv",
+				"serverUrl"
+			],
+			[
+				"temp",
+				"templateCreateNewStory"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"onClick",
+				"onClickMarkers"
+			],
+			[
+				"onCli",
+				"onClickMarkers"
+			],
+			[
+				"lo",
+				"longitude"
+			],
+			[
+				"la",
+				"latitude"
+			],
+			[
+				"scr",
+				"script	Tag"
+			],
+			[
+				"long",
+				"longitude"
+			],
+			[
+				"satt",
+				"statusText"
+			],
+			[
+				"stat",
+				"statusText"
+			],
+			[
+				"sta",
+				"status	jsWindow"
+			],
+			[
+				"marke",
+				"markers"
+			],
+			[
+				"ui-gmap",
+				"ui-gmap-window"
+			],
+			[
+				"mar",
+				"markers"
+			],
+			[
+				"close",
+				"closeClick"
+			],
+			[
+				"clied",
+				"clickedUI"
+			],
+			[
+				"$sc",
+				"$scope"
+			],
+			[
+				"clicked",
+				"clickedUI"
+			],
+			[
+				"self",
+				"selfCtrl"
+			],
+			[
+				"contex",
+				"contextMenuCoords"
+			],
+			[
+				"context",
+				"contextMenuOptions"
+			],
+			[
+				"eve",
+				"eventName"
+			],
+			[
+				"uiGma",
+				"uiGmapGoogleMapApi"
+			],
+			[
+				"uiGmap",
+				"uiGmapGoogleMapApiProvider"
+			],
+			[
+				"uiGm",
+				"uiGmapGoogleMapApiProvider"
+			],
+			[
+				"Anguar",
+				"AngularMapAsset"
+			],
+			[
+				"curren",
+				"currentLocation"
+			],
+			[
+				"curre",
+				"currentLocation"
+			],
+			[
+				"render",
+				"renderVars"
+			],
+			[
+				"link",
+				"linking_line"
+			],
+			[
+				"stro",
+				"stroke-width"
+			],
+			[
+				"visu",
+				"visual_group"
+			],
+			[
+				"tmp",
+				"tmp_data"
+			],
+			[
+				"drag",
+				"dragend"
+			],
+			[
+				"even",
+				"event"
+			],
+			[
+				"stop",
+				"stopPropagation"
+			],
+			[
+				"event",
+				"event_name"
+			],
+			[
+				"func",
+				"function	jsProp"
+			],
+			[
+				"mouse",
+				"mouseout"
+			],
+			[
+				"trans",
+				"translate"
+			],
+			[
+				"sugg",
+				"suggestion"
+			],
+			[
+				"style",
+				"stylesheet"
+			],
+			[
+				"subNo",
+				"subNode"
+			],
+			[
+				"Ori",
+				"OriginoLink"
+			],
+			[
+				"Origin",
+				"OriginoLink"
+			],
+			[
+				"call",
+				"callback"
+			],
+			[
+				"Orin",
+				"OriginoLink"
+			],
+			[
+				"vis",
+				"visible"
+			],
+			[
+				"ele",
+				"element"
+			],
+			[
+				"vi",
+				"visual_data"
+			],
+			[
+				"visi",
+				"visible"
+			],
+			[
+				"visib",
+				"visible_links"
+			],
+			[
+				"ref",
+				"refByName"
+			],
+			[
+				"for",
+				"for	for (…) {…}"
+			],
+			[
+				"retu",
+				"returnRef"
+			],
+			[
+				"visua",
+				"visual_data"
+			],
+			[
+				"ind",
+				"index"
+			],
+			[
+				"strok",
+				"stroke-width"
+			],
+			[
+				"cos",
+				"console	jsProp"
+			],
+			[
+				"el",
+				"element"
+			],
+			[
+				"en",
+				"enter"
+			],
+			[
+				"nod",
+				"nodesEnter"
+			],
+			[
+				"nodes",
+				"nodesEnter"
+			],
+			[
+				"node",
+				"nodesG"
+			],
+			[
+				"sub",
+				"subNodes"
+			],
+			[
+				"numbe",
+				"number_of_sub_nodes"
+			],
+			[
+				"num",
+				"number_of_sub_nodes"
+			],
+			[
+				"exp",
+				"expandedNodes"
+			],
+			[
+				"ex",
+				"expandedNodes"
+			],
+			[
+				"forc",
+				"force"
+			],
+			[
+				"index",
+				"indexOf	jsArray"
+			],
+			[
+				"va",
+				"value	jsDOM"
+			],
+			[
+				"zoo",
+				"zoom"
+			],
+			[
+				"db",
+				"dbclickNode"
+			],
+			[
+				"dra",
+				"drag"
+			],
+			[
+				"force",
+				"forceTick"
+			],
+			[
+				"number",
+				"number_of_links"
+			],
+			[
+				"scale",
+				"scaleExtent"
+			],
+			[
+				"cen",
+				"center"
+			],
+			[
+				"tran",
+				"transform"
+			],
+			[
+				"sele",
+				"selectAll"
+			],
+			[
+				"subcir",
+				"number_of_sub_circles"
+			],
+			[
+				"fo",
+				"for	for (…) {…}"
+			],
+			[
+				"ci",
+				"circle"
+			],
+			[
+				"offse",
+				"offset_vector"
+			],
+			[
+				"off",
+				"offset_vector"
+			],
+			[
+				"rot",
+				"rotate_angle"
+			],
+			[
+				"sty",
+				"style('fill"
+			],
+			[
+				"circl",
+				"circle_radius"
+			],
+			[
+				"numer",
+				"number_of_circles"
+			],
+			[
+				"ev",
+				"event"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "routes/portal.js",
+			"settings":
+			{
+				"buffer_size": 614,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 67.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 467.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/yglin/Sites/LocalStories/localstory",
+		"/Users/yglin/Sites/LocalStories/localstory/public",
+		"/Users/yglin/Sites/LocalStories/localstory/routes"
+	],
+	"file_history":
+	[
+		"/Users/yglin/Sites/LocalStories/localstory/package.json",
+		"/Users/yglin/Sites/spirit99.yii2/yii2/frontend/index.html",
+		"/Users/yglin/Sites/LocalStories/index.js",
+		"/Users/yglin/Sites/LocalStories/Gruntfile.js",
+		"/Users/yglin/Sites/spirit99.yii2/yii2/frontend/spirit99.js",
+		"/Users/yglin/Sites/spirit99/app/styles/main.css",
+		"/Users/yglin/Sites/spirit99/yeoman/app/scripts/app.js",
+		"/Users/yglin/Sites/spirit99/yii2/frontend/index.html",
+		"/Users/yglin/Sites/spirit99/yeoman/app/index.html",
+		"/Users/yglin/Sites/tutorials/mytodo/test/spec/controllers/main.js",
+		"/Users/yglin/Sites/tutorials/mytodo/app/index.html",
+		"/Users/yglin/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/yglin/Sites/spirit99/frontend/side-menu.less",
+		"/Users/yglin/Downloads/phpMyAdmin-4.3.9-english/setup/lib/ConfigGenerator.class.php",
+		"/Users/yglin/Sites/spirit99/frontend/controlPanel.html",
+		"/Users/yglin/Sites/spirit99/models/Story.php",
+		"/Users/yglin/Sites/spirit99/views/story/view.php",
+		"/Users/yglin/Sites/spirit99/vendor/yiisoft/yii2/rest/ActiveController.php",
+		"/Users/yglin/Sites/spirit99/controllers/StoryController.php",
+		"/Users/yglin/Sites/spirit99/views/story/createForm.php",
+		"/Users/yglin/Sites/spirit99/config/web.php",
+		"/Users/yglin/Sites/spirit99/frontend/createStory.html",
+		"/Users/yglin/Sites/spirit99/assets/AppAsset.php",
+		"/Users/yglin/Sites/spirit99/web/js/angular-app-map.js",
+		"/Users/yglin/Sites/spirit99/frontend/index.html",
+		"/Users/yglin/Sites/spirit99/controllers/PostController.php",
+		"/Users/yglin/Sites/spirit99/models/Post.php",
+		"/Users/yglin/Sites/spirit99/components/SpatialDataBehavior.php",
+		"/Users/yglin/Sites/spirit99/vendor/yiisoft/yii2/log/FileTarget.php",
+		"/Users/yglin/Sites/spirit99/vendor/yiisoft/yii2/behaviors/SpatialDataBehavior.php",
+		"/Users/yglin/Sites/spirit99/assets/AngularAsset.php",
+		"/Users/yglin/Sites/spirit99/assets/LodashAsset.php",
+		"/Users/yglin/Sites/spirit99/assets/AngularMapAsset.php",
+		"/Users/yglin/Sites/spirit99/models/User.php",
+		"/Users/yglin/Sites/spirit99/views/site/angularMap.php",
+		"/Users/yglin/Sites/spirit99/views/site/gmap3.php",
+		"/Users/yglin/Sites/spirit99/controllers/SiteController.php",
+		"/Users/yglin/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/yglin/Sites/spirit99/assets/jQueryAsset.php",
+		"/Users/yglin/Sites/spirit99/assets/Gmap3Asset.php",
+		"/Users/yglin/Sites/spirit99/composer.json",
+		"/Users/yglin/Sites/spirit99/assets/GoogleMapAsset.php",
+		"/Users/yglin/Sites/spirit99/views/site/greeting.php",
+		"/Users/yglin/Sites/spirit99/models/EntryForm.php",
+		"/Users/yglin/Sites/spirit99/views/site/entry.php",
+		"/Users/yglin/Sites/spirit99/views/site/entry-confirm.php",
+		"/Users/yglin/Sites/spirit99/views/country/index.php",
+		"/Users/yglin/Sites/spirit99/controllers/CountryController.php",
+		"/Users/yglin/Sites/spirit99/models/Country.php",
+		"/Users/yglin/Sites/spirit99/config/db.php",
+		"/Users/yglin/Sites/spirit99/views/layouts/main.php",
+		"/Users/yglin/Projects/my-website/OriginO/nodejs/views/index.jade",
+		"/Users/yglin/Projects/my-website/OriginO/djangoserver/djangoserver/settings.py",
+		"/Users/yglin/Projects/my-website/OriginO/djangoserver/spider/urls.py",
+		"/Users/yglin/Projects/my-website/OriginO/djangoserver/spider/views.py",
+		"/Users/yglin/Projects/my-website/OriginO/djangoserver/templates/spider/spider.html",
+		"/Users/yglin/Projects/my-website/OriginO/djangoserver/templates/spider/spidermobile.html",
+		"/Users/yglin/Projects/my-website/OriginO/djangoserver/templates/basemobile.html",
+		"/Users/yglin/Projects/my-website/OriginO/djangoserver/templates/base.html",
+		"/Users/yglin/Projects/my-website/OriginO/djangoserver/djangoserver/urls.py",
+		"/Users/yglin/Projects/my-website/OriginO/djangoserver/home/views.py",
+		"/Users/yglin/Projects/my-website/OriginO/djangoserver/fabfile.py",
+		"/Users/yglin/Projects/my-website/OriginO/origino/routes/db.js",
+		"/Users/yglin/Projects/my-website/OriginO/origino/public/css/search_box.css",
+		"/Users/yglin/Projects/my-website/OriginO/origino/public/css/searchbox.css",
+		"/Users/yglin/Projects/my-website/OriginO/origino/public/javascripts/visual-graph.js",
+		"/Users/yglin/Projects/my-website/OriginO/origino/routes/index.js",
+		"/Users/yglin/Projects/my-website/OriginO/origino/views/layout.jade",
+		"/Users/yglin/Projects/my-website/OriginO/origino/views/index.jade",
+		"/Users/yglin/Projects/my-website/OriginO/origino/public/javascripts/index.js",
+		"/Users/yglin/Projects/my-website/OriginO/origino/package.json",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/.git/config",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/views/layout.bak.jade",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/views/layout.jade",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/views/home.jade",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/views/lawsuits_listAll.jade",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/public/html/lawsuits-brief.html",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/public/html/groups-brief.html",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/public/js/list-query-result.js",
+		"/Users/yglin/Downloads/css3searchbox/demo-style.css",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/app.js",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/views/mapview.jade",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/views/layout.jade.bak",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/routes/lawsuits.js",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/routes/home.js",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/public/css/body.css",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/db.js",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/routes/lawsuit.js",
+		"/Users/yglin/Projects/ExpensesManager/source/expensesManagerPro/expensesManager/Kongkongna BeRich-Info.plist",
+		"/Users/yglin/Projects/ExpensesManager/source/expensesManagerPro/Kongkongna BeRich.xcodeproj/project.pbxproj",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/test.html",
+		"/Users/yglin/Library/Application Support/Sublime Text 3/Packages/JSHint Gutter/.jshintrc",
+		"/Users/yglin/Library/Application Support/Sublime Text 3/Packages/JSHint Gutter/JSHint.sublime-settings",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/.gitignore",
+		"/Users/yglin/Projects/eMovements/eCourt/eCourt/initdb.js",
+		"/Users/yglin/Study/NodeBeginnerBook/exercise/server.js",
+		"/Users/yglin/Study/NodeBeginnerBook/exercise/index.js",
+		"/Users/yglin/Study/NodeBeginnerBook/exercise/router.js",
+		"/Users/yglin/Study/NodeBeginnerBook/exercise/requestHandlers.js",
+		"/Users/yglin/Study/NodeBeginnerBook/exercise/formidable.js",
+		"/Users/yglin/Study/NodeBeginnerBook/code/helloworld/helloworld.js",
+		"/Users/yglin/Study/NodeBeginnerBook/code/application/index.js",
+		"/Users/yglin/Study/NodeBeginnerBook/code/application/server.js",
+		"/Users/yglin/Study/NodeBeginnerBook/code-es/aplicacion/server.js"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Users/yglin/Sites/spirit99/web/app/views/country"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"mapClickedHandler",
+			"EVENT",
+			"pdo",
+			"console.log",
+			"addSubNodes",
+			"redraw",
+			"this.",
+			"visual_data",
+			"this.visual_data",
+			"svg",
+			"dbclick",
+			"this",
+			"circle",
+			"groups",
+			"query_prompt",
+			"group-div-template",
+			"a."
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"onMapClicked",
+			"linkSlots",
+			"self.",
+			"doubleClick",
+			"self",
+			"node",
+			"lawsuits",
+			"result_prompt",
+			"groups_div_template",
+			"button."
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "routes/portal.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 614,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								65,
+								65
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "localstory.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"~/Sites/spirit99/spirit99.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 302.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
