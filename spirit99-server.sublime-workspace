@@ -4,6 +4,86 @@
 		"selected_items":
 		[
 			[
+				"con",
+				"context"
+			],
+			[
+				"port",
+				"portalData"
+			],
+			[
+				"portal",
+				"portalUrl"
+			],
+			[
+				"data",
+				"dataArray"
+			],
+			[
+				"server",
+				"servers"
+			],
+			[
+				"local",
+				"localstory"
+			],
+			[
+				"fun",
+				"fun	Function"
+			],
+			[
+				"update",
+				"updatePromises"
+			],
+			[
+				"curr",
+				"currentServer"
+			],
+			[
+				"new",
+				"newPostResource"
+			],
+			[
+				"fu",
+				"fun	Function"
+			],
+			[
+				"posts",
+				"posts"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"pos",
+				"posts"
+			],
+			[
+				"post",
+				"postResource"
+			],
+			[
+				"serr",
+				"servers"
+			],
+			[
+				"ser",
+				"servers"
+			],
+			[
+				"curre",
+				"currentServerName"
+			],
+			[
+				"$root",
+				"$rootScope	AngularJS"
+			],
+			[
+				"yg",
+				"ygUserPref"
+			],
+			[
 				"md-list",
 				"md-list-item"
 			],
@@ -24,20 +104,12 @@
 				"todosInStore"
 			],
 			[
-				"local",
-				"localStorageService"
-			],
-			[
 				"add",
 				"addClass	jQuery"
 			],
 			[
 				"slide",
 				"slideButtonIcon"
-			],
-			[
-				"new",
-				"newMarker"
 			],
 			[
 				"result",
@@ -100,16 +172,8 @@
 				"storyID"
 			],
 			[
-				"con",
-				"controller"
-			],
-			[
 				"show",
 				"showDetail"
-			],
-			[
-				"post",
-				"postData"
 			],
 			[
 				"err",
@@ -134,10 +198,6 @@
 			[
 				"status",
 				"statusText"
-			],
-			[
-				"cons",
-				"console	jsProp"
 			],
 			[
 				"template",
@@ -257,10 +317,6 @@
 			],
 			[
 				"curren",
-				"currentLocation"
-			],
-			[
-				"curre",
 				"currentLocation"
 			],
 			[
@@ -458,72 +514,24 @@
 			[
 				"number",
 				"number_of_links"
-			],
-			[
-				"scale",
-				"scaleExtent"
-			],
-			[
-				"cen",
-				"center"
-			],
-			[
-				"tran",
-				"transform"
-			],
-			[
-				"sele",
-				"selectAll"
-			],
-			[
-				"subcir",
-				"number_of_sub_circles"
-			],
-			[
-				"fo",
-				"for	for (…) {…}"
-			],
-			[
-				"ci",
-				"circle"
-			],
-			[
-				"offse",
-				"offset_vector"
-			],
-			[
-				"off",
-				"offset_vector"
-			],
-			[
-				"rot",
-				"rotate_angle"
-			],
-			[
-				"sty",
-				"style('fill"
-			],
-			[
-				"circl",
-				"circle_radius"
-			],
-			[
-				"numer",
-				"number_of_circles"
-			],
-			[
-				"ev",
-				"event"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
+			"file": "routes/posts.js",
+			"settings":
+			{
+				"buffer_size": 717,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "routes/portal.js",
 			"settings":
 			{
-				"buffer_size": 614,
+				"buffer_size": 931,
 				"line_ending": "Unix"
 			}
 		}
@@ -581,12 +589,19 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/yglin/Sites/LocalStories/localstory",
-		"/Users/yglin/Sites/LocalStories/localstory/public",
-		"/Users/yglin/Sites/LocalStories/localstory/routes"
+		"/Users/yglin/Sites/spirit99/server",
+		"/Users/yglin/Sites/spirit99/server/routes"
 	],
 	"file_history":
 	[
+		"/Users/yglin/Sites/spirit99/client/app/scripts/services/yguserpref.js",
+		"/Users/yglin/Sites/spirit99/client/app/scripts/controllers/storyeditorcontroller.js",
+		"/Users/yglin/Sites/spirit99/client/app/scripts/controllers/mapcontroller.js",
+		"/Users/yglin/Sites/spirit99/client/app/views/main.html",
+		"/Users/yglin/Sites/spirit99/client/app/scripts/controllers/main.js",
+		"/Users/yglin/Sites/spirit99/client/app/scripts/app.js",
+		"/Users/yglin/Sites/spirit99/client/app/scripts/services/ygerror.js",
+		"/Users/yglin/Sites/spirit99/client/app/index.html",
 		"/Users/yglin/Sites/LocalStories/localstory/package.json",
 		"/Users/yglin/Sites/spirit99.yii2/yii2/frontend/index.html",
 		"/Users/yglin/Sites/LocalStories/index.js",
@@ -709,6 +724,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"console",
+			"$rootScope",
 			"mapClickedHandler",
 			"EVENT",
 			"pdo",
@@ -758,30 +775,62 @@
 			[
 				{
 					"buffer": 0,
-					"file": "routes/portal.js",
+					"file": "routes/posts.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 614,
+						"buffer_size": 717,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								65,
-								65
+								449,
+								449
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "routes/portal.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 931,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								901,
+								901
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -822,7 +871,7 @@
 	{
 		"height": 0.0
 	},
-	"project": "localstory.sublime-project",
+	"project": "spirit99-server.sublime-project",
 	"replace":
 	{
 		"height": 48.0

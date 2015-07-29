@@ -23,7 +23,7 @@ var dbConnection = mysql.createConnection({
 // dbConnection.end();
 
 var routes = require('./routes/index');
-//var users = require('./routes/users');
+var posts = require('./routes/posts');
 var portal = require('./routes/portal');
 
 var app = express();
@@ -67,6 +67,7 @@ app.use(function (req, res, next) {
 
 //app.use('/', routes);
 //app.use('/users', users);
+app.use('/posts', posts);
 app.use('/portal', portal);
 
 
