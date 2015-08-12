@@ -4,13 +4,40 @@ var mysql = require('mysql');
 var router = express.Router();
 
 router.get('/', function(req, res){
-    var sql = 'SELECT * FROM `story`';
+    var sql = 'SELECT ';
+    
     if(Array.isArray(req.query.fields)){
-        sql = mysql.format('SELECT ?? FROM `story`', [req.query.fields]);
+        sql += mysql.format('??', [req.query.fields]);
     }
+    else{
+        sql += '*';
+    }
+
+    sql += '%extraAliases% FROM `story` %havingStatement%';
+
+    var extraAliases = '';
+    var havingStatement = '';
+
+    if('filterCircle' in req.query){
+        var filterCircle = JSON.parse(req.query.filterCircle);
+        // This formula for filtering geo locations in a circle area
+        // is copied from
+        // http://stackoverflow.com/questions/8850336/radius-of-40-kilometers-using-latitude-and-longitude 
+        var distanceAlias = '( 6371 * acos( cos( radians(' + filterCircle.center.latitude;
+        distanceAlias += ') ) * cos( radians( `latitude` ) ) * cos( radians( `longitude` )';
+        distanceAlias += '- radians(' + filterCircle.center.longitude;
+        distanceAlias += ') ) + sin( radians(' + filterCircle.center.latitude;
+        distanceAlias += ') ) * sin( radians( `latitude` ) ) ) ) AS distance';
+        extraAliases = ', ' + distanceAlias;
+        havingStatement = 'HAVING distance <= ' + (filterCircle.radius / 1000.0);
+    }
+
+    sql = sql.replace('%extraAliases%', extraAliases);
+    sql = sql.replace('%havingStatement%', havingStatement);
     console.log(sql);
     req.db.query(sql, function (error, results, fields){
         if(error){
+            console.error(error);
             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
             res.json(error);
         }
