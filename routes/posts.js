@@ -41,15 +41,23 @@ router.get('/:post_id', function(req, res){
 router.post('/', function(req, res){
     var db = req.db;
     // console.log(req.body);
-    db.query('INSERT INTO `story` SET ?', req.body, function(error, result){
+    db.query('INSERT INTO `story` SET ?', req.body, function (error, result){
         if(error){
             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
             res.json(error);
         }
         else{
-            db.query('SELECT * FROM `story` ')
-            res.status(HttpStatus.CREATED);
-            res.json(result);
+            db.query('SELECT * FROM `story` WHERE `id`=?', [result.insertId],
+                function (error, results) {
+                    if(error){
+                        res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+                        res.json(error);                        
+                    }
+                    else{
+                        res.status(HttpStatus.CREATED);
+                        res.json(results[0]);                        
+                    }
+            });
         }        
     });
 });
