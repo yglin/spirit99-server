@@ -34,7 +34,7 @@ router.get('/', function(req, res){
 
     sql = sql.replace('%extraAliases%', extraAliases);
     sql = sql.replace('%havingStatement%', havingStatement);
-    console.log(sql);
+    // console.log(sql);
     req.db.query(sql, function (error, results, fields){
         if(error){
             console.error(error);
