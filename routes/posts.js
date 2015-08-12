@@ -1,10 +1,15 @@
 var express = require('express');
 var HttpStatus = require('http-status-codes');
+var mysql = require('mysql');
 var router = express.Router();
 
 router.get('/', function(req, res){
-    var db = req.db;
-    db.query('SELECT `id`,`title`,`latitude`,`longitude`,`icon` FROM `story`', function (error, results, fields){
+    var sql = 'SELECT * FROM `story`';
+    if(Array.isArray(req.query.fields)){
+        sql = mysql.format('SELECT ?? FROM `story`', [req.query.fields]);
+    }
+    console.log(sql);
+    req.db.query(sql, function (error, results, fields){
         if(error){
             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
             res.json(error);
@@ -42,6 +47,7 @@ router.post('/', function(req, res){
             res.json(error);
         }
         else{
+            db.query('SELECT * FROM `story` ')
             res.status(HttpStatus.CREATED);
             res.json(result);
         }        
