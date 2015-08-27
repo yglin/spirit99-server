@@ -8,3 +8,5 @@ npm-debug.log
 *.sublime-workspace
 
 spirit99-server.sublime-workspace
+
+*.sublime-workspace
