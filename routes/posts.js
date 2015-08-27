@@ -13,10 +13,37 @@ router.get('/', function(req, res){
         sql += '*';
     }
 
-    sql += '%extraAliases% FROM `story` %havingStatement%';
+    sql += '%extraAliases% FROM `story` %whereStatement% %havingStatement% ORDER BY `id` %limitStatement%';
 
     var extraAliases = '';
+    var whereStatement = '';
     var havingStatement = '';
+    var limitStatement = '';
+
+    if('bounds' in req.query){
+        var bounds = JSON.parse(req.query.bounds);
+        // console.log(bounds);
+        var latMin, latMax, lngMin, lngMax;
+        if(bounds.northeast.latitude > bounds.southwest.latitude){
+            latMin = bounds.southwest.latitude;
+            latMax = bounds.northeast.latitude;
+        }
+        else{
+            latMax = bounds.southwest.latitude;
+            latMin = bounds.northeast.latitude;            
+        }
+        if(bounds.northeast.longitude > bounds.southwest.longitude){
+            lngMin = bounds.southwest.longitude;
+            lngMax = bounds.northeast.longitude;
+        }
+        else{
+            lngMax = bounds.southwest.longitude;
+            lngMin = bounds.northeast.longitude;
+        }
+        whereStatement = 'WHERE '
+            + '`latitude` > ' + latMin + ' AND `latitude` < ' + latMax + ' AND '
+            + '`longitude` > ' + lngMin + ' AND `longitude` < ' + lngMax;
+    }
 
     if('filterCircle' in req.query){
         var filterCircle = JSON.parse(req.query.filterCircle);
@@ -32,8 +59,14 @@ router.get('/', function(req, res){
         havingStatement = 'HAVING distance <= ' + (filterCircle.radius / 1000.0);
     }
 
+    if('pageOffset' in req.query && 'pageSize' in req.query){
+        limitStatement = 'LIMIT ' + req.query.pageOffset + ',' + req.query.pageSize;
+    }
+
     sql = sql.replace('%extraAliases%', extraAliases);
+    sql = sql.replace('%whereStatement%', whereStatement);
     sql = sql.replace('%havingStatement%', havingStatement);
+    sql = sql.replace('%limitStatement%', limitStatement);
     // console.log(sql);
     req.db.query(sql, function (error, results, fields){
         if(error){
@@ -41,7 +74,21 @@ router.get('/', function(req, res){
             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
             res.json(error);
         }
-        else{ 
+        else{
+            var links = {};
+            if('pageOffset' in req.query && 'pageSize' in req.query){
+                var fullReqUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+                var pageOffset = parseInt(req.query.pageOffset);
+                var pageSize = parseInt(req.query.pageSize);
+                if(pageOffset - pageSize >= 0){
+                    links['prev-page'] = fullReqUrl + '?pageOffset=' + (pageOffset - pageSize) + '&pageSize=' + pageSize;
+                }
+                if(results.length == pageSize){
+                    links['next-page'] = fullReqUrl + '?pageOffset=' + (pageOffset + pageSize) + '&pageSize=' + pageSize;
+                }
+                // Build prev/next page link
+            }
+            res.links(links);
             res.json(results);
         }
     });
