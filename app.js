@@ -23,8 +23,9 @@ var dbConnection = mysql.createConnection({
 // dbConnection.end();
 
 var routes = require('./routes/index');
-var posts = require('./routes/posts');
 var portal = require('./routes/portal');
+var posts = require('./routes/posts');
+var relations = require('./routes/relations');
 
 var app = express();
 
@@ -69,8 +70,9 @@ app.use(function (req, res, next) {
 
 //app.use('/', routes);
 //app.use('/users', users);
-app.use('/posts', posts);
 app.use('/portal', portal);
+app.use('/posts', posts);
+app.use('/relations', relations);
 
 
 // catch 404 and forward to error handler
