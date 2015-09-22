@@ -1,8 +1,27 @@
 var express = require('express');
 var HttpStatus = require('http-status-codes');
 var mysql = require('mysql');
-var router = express.Router();
 
+var crypto = require('crypto'),
+    algorithm = 'aes-256-ctr',
+    serverKeycode = 'ru.3g6ru.3gp6';
+
+function encrypt(text, password){
+  var cipher = crypto.createCipher(algorithm,password)
+  var crypted = cipher.update(text,'utf8','hex')
+  crypted += cipher.final('hex');
+  return crypted;
+}
+ 
+function decrypt(text, password){
+  var decipher = crypto.createDecipher(algorithm,password)
+  var dec = decipher.update(text,'hex','utf8')
+  dec += decipher.final('utf8');
+  return dec;
+}
+
+var router = express.Router();
+ 
 router.get('/', function(req, res){
     var sql = 'SELECT ';
     
@@ -113,8 +132,8 @@ router.get('/:post_id', function(req, res){
 });
 
 router.post('/', function(req, res){
+    // console.log(req.body);
     if('id' in req.body){
-        console.log(req.body);
         req.db.query('SELECT * FROM `story` WHERE `id`=? LIMIT 1', [req.body.id], function (error, results, fields){
             if(error){
                 res.status(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -123,8 +142,15 @@ router.post('/', function(req, res){
             }
             else{
                 var post = results[0];
+                if(!('password' in req.body)
+                || req.body.password === null
+                || decrypt(req.body.password, serverKeycode) != post.password){
+                    res.status(HttpStatus.UNAUTHORIZED);
+                    res.send("Incorrect password, you may not be the owner of this post");
+                    return;
+                }
                 for(var key in post){
-                    if(key in req.body && key != 'id' && key != 'create_time'){
+                    if(key in req.body && key != 'id' && key != 'create_time' && key != 'password'){
                         post[key] = req.body[key];
                     }
                 }
@@ -147,14 +173,25 @@ router.post('/', function(req, res){
     }
     else{
         // Create new post.
-        req.db.query('INSERT INTO `story` SET ?', req.body, function (error, result){
+        
+        // Create a random password
+        var password;
+        try{
+            password = crypto.randomBytes(128).toString('hex');
+        } catch(ex){
+            password = encrypt('@九十九神, ' + (new Date()).toISOString(), serverKeycode);
+        }
+
+        console.log(password);
+        req.db.query('INSERT INTO `story` SET ?, `password`=?', [req.body, password],
+        function (error, result){
             if(error){
                 res.status(HttpStatus.INTERNAL_SERVER_ERROR);
                 res.json(error);
                 console.log(error);
             }
             else{
-                db.query('SELECT * FROM `story` WHERE `id`=?', [result.insertId],
+                req.db.query('SELECT * FROM `story` WHERE `id`=?', [result.insertId],
                     function (error, results) {
                         if(error){
                             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -163,7 +200,9 @@ router.post('/', function(req, res){
                         }
                         else{
                             res.status(HttpStatus.CREATED);
-                            res.json(results[0]);                        
+                            var post = results[0];
+                            post.password = encrypt(post.password, serverKeycode);
+                            res.json(post);                        
                         }
                 });
             }        
