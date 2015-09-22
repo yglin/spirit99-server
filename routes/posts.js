@@ -113,27 +113,94 @@ router.get('/:post_id', function(req, res){
 });
 
 router.post('/', function(req, res){
-    var db = req.db;
-    // console.log(req.body);
-    db.query('INSERT INTO `story` SET ?', req.body, function (error, result){
-        if(error){
-            res.status(HttpStatus.INTERNAL_SERVER_ERROR);
-            res.json(error);
-        }
-        else{
-            db.query('SELECT * FROM `story` WHERE `id`=?', [result.insertId],
+    if('id' in req.body){
+        console.log(req.body);
+        req.db.query('SELECT * FROM `story` WHERE `id`=? LIMIT 1', [req.body.id], function (error, results, fields){
+            if(error){
+                res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+                res.send(error);
+                console.log(error);
+            }
+            else{
+                var post = results[0];
+                for(var key in post){
+                    if(key in req.body && key != 'id' && key != 'create_time'){
+                        post[key] = req.body[key];
+                    }
+                }
+                post.modify_time = (new Date()).toISOString().substring(0, 19).replace('T', ' ');
+                req.db.query('UPDATE `story` SET ? WHERE `id`=?', [post, req.body.id],
                 function (error, results) {
                     if(error){
                         res.status(HttpStatus.INTERNAL_SERVER_ERROR);
-                        res.json(error);                        
+                        res.send(error);
+                        console.log(error);
                     }
                     else{
-                        res.status(HttpStatus.CREATED);
-                        res.json(results[0]);                        
+                        // console.log(post);
+                        post.modify_time = new Date(post.modify_time);
+                        res.json(post);
                     }
+                });
+            }
+        });    
+    }
+    else{
+        // Create new post.
+        req.db.query('INSERT INTO `story` SET ?', req.body, function (error, result){
+            if(error){
+                res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+                res.json(error);
+                console.log(error);
+            }
+            else{
+                db.query('SELECT * FROM `story` WHERE `id`=?', [result.insertId],
+                    function (error, results) {
+                        if(error){
+                            res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+                            res.json(error);
+                            console.log(error);
+                        }
+                        else{
+                            res.status(HttpStatus.CREATED);
+                            res.json(results[0]);                        
+                        }
+                });
+            }        
+        });
+    }
+});
+
+router.put('/:post_id', function (req, res) {
+    console.log(req.body);
+    req.db.query('SELECT * FROM `story` WHERE `id`=? LIMIT 1', [req.params.post_id], function (error, results, fields){
+        if(error){
+            res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+            res.send(error);
+            console.log(error);
+        }
+        else{
+            var post = results[0];
+            for(var key in ['title', 'icon', 'author', 'context']){
+                if(key in req.body){
+                    post[key] = req.body[key];
+                }
+            }
+            post.modify_time = (new Date()).toISOString().substring(0, 19).replace('T', ' ');
+            req.db.query('UPDATE `story` SET ? WHERE `id`=?', [post, req.params.post_id],
+            function (error, results) {
+                if(error){
+                    res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+                    res.send(error);
+                    console.log(error);
+                }
+                else{
+                    console.log(post);
+                    res.json(post);
+                }
             });
-        }        
-    });
+        }
+    });    
 });
 
 router.get('/:post_id/comments', function (req, res) {
