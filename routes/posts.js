@@ -210,6 +210,43 @@ router.post('/', function(req, res){
     }
 });
 
+router.delete('/:post_id', function (req, res) {
+    req.db.query('SELECT * FROM `story` WHERE `id`=? LIMIT 1', [req.params.post_id],
+    function (error, results, fields){
+        if(error || results.length <= 0){
+            res.status(HttpStatus.NOT_FOUND);
+            res.send(error);
+            console.log(error);
+        }
+        else if('password' in req.query){
+            var post = results[0];
+            // console.log(req.query.password);
+            // console.log(post.password);
+            if(decrypt(req.query.password, serverKeycode) == post.password){
+                req.db.query('DELETE FROM `story` WHERE `id`=? LIMIT 1', [req.params.post_id],
+                function (error, results) {
+                    if(error){
+                        res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+                        res.json(error);
+                        console.log(error);
+                    }
+                    else{
+                        res.send(results);
+                    }
+                });
+            }
+            else{
+                res.status(HttpStatus.UNAUTHORIZED);
+                res.send("Incorrect password, you may not be the owner of this post");                
+            }
+        }
+        else{
+            res.status(HttpStatus.UNAUTHORIZED);
+            res.send("Incorrect password, you may not be the owner of this post");        
+        }
+    });
+});
+
 router.put('/:post_id', function (req, res) {
     console.log(req.body);
     req.db.query('SELECT * FROM `story` WHERE `id`=? LIMIT 1', [req.params.post_id], function (error, results, fields){
