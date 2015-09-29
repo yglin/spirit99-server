@@ -5,7 +5,9 @@ router.get('/localstory', function(req, res){
     var portalData = {
         name: 'localstory',
         title: '在地的故事',
+        portalUrl: 'http://localhost:3000/portal/localstory',
         postUrl: 'http://localhost:3000/posts',
+        commentUrl: 'http://localhost:3000/posts/:post_id/comments',
         postRelationUrl: 'http://localhost:3000/relations',
         logo: 'http://www.tuxpaint.org/stamps/stamps/town/houses/cartoon/city.svg',
         iconSet: {
