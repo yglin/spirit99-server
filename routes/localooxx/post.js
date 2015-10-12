@@ -1,5 +1,6 @@
 var express = require('express');
 var HttpStatus = require('http-status-codes');
+var mysql = require('mysql');
 
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
@@ -17,26 +18,6 @@ function decrypt(text, password){
   var dec = decipher.update(text,'hex','utf8')
   dec += decipher.final('utf8');
   return dec;
-}
-
-// Set up connection to mysql DB
-var mysql = require('mysql');
-if(process.env.NODE_ENV == 'production'){
-  var db = mysql.createConnection({
-    host     : 'aaf3pm3afiykuv.c9n0qaroyipe.ap-northeast-1.rds.amazonaws.com',
-    user     : 'spirit99',
-    password : 'ru.3g6ru.3gp6',
-    port     : 3306,
-    database : 'localooxx'
-  });
-}
-else{
-  var db = mysql.createConnection({
-    host: 'localhost',
-    user: 'yglin',
-    password: 'Mlanser0419',
-    database: 'localooxx',
-  });    
 }
 
 var router = express.Router();
@@ -106,7 +87,7 @@ router.get('/', function(req, res){
     sql = sql.replace('%havingStatement%', havingStatement);
     sql = sql.replace('%limitStatement%', limitStatement);
     // console.log(sql);
-    db.query(sql, function (error, results, fields){
+    req.db.query(sql, function (error, results, fields){
         if(error){
             console.error(error);
             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -143,7 +124,7 @@ router.get('/:post_id', function(req, res){
     }
     sql += mysql.format(' FROM `post` WHERE `id`=? LIMIT 1', [req.params.post_id]);
         
-    db.query(sql, function (error, results, fields){
+    req.db.query(sql, function (error, results, fields){
         if(error){
             console.log(error);
             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -162,7 +143,7 @@ router.get('/:post_id', function(req, res){
 router.post('/', function(req, res){
     // console.log(req.body);
     if('id' in req.body){
-        db.query('SELECT * FROM `post` WHERE `id`=? LIMIT 1', [req.body.id], function (error, results, fields){
+        req.db.query('SELECT * FROM `post` WHERE `id`=? LIMIT 1', [req.body.id], function (error, results, fields){
             if(error){
                 res.status(HttpStatus.INTERNAL_SERVER_ERROR);
                 res.send(error);
@@ -183,7 +164,7 @@ router.post('/', function(req, res){
                     }
                 }
                 post.modify_time = (new Date()).toISOString().substring(0, 19).replace('T', ' ');
-                db.query('UPDATE `post` SET ? WHERE `id`=?', [post, req.body.id],
+                req.db.query('UPDATE `post` SET ? WHERE `id`=?', [post, req.body.id],
                 function (error, results) {
                     if(error){
                         res.status(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -211,7 +192,7 @@ router.post('/', function(req, res){
         }
 
         console.log(password);
-        db.query('INSERT INTO `post` SET ?, `password`=?', [req.body, password],
+        req.db.query('INSERT INTO `post` SET ?, `password`=?', [req.body, password],
         function (error, result){
             if(error){
                 res.status(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -219,7 +200,7 @@ router.post('/', function(req, res){
                 console.log(error);
             }
             else{
-                db.query('SELECT * FROM `post` WHERE `id`=?', [result.insertId],
+                req.db.query('SELECT * FROM `post` WHERE `id`=?', [result.insertId],
                     function (error, results) {
                         if(error){
                             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -239,7 +220,7 @@ router.post('/', function(req, res){
 });
 
 router.delete('/:post_id', function (req, res) {
-    db.query('SELECT * FROM `post` WHERE `id`=? LIMIT 1', [req.params.post_id],
+    req.db.query('SELECT * FROM `post` WHERE `id`=? LIMIT 1', [req.params.post_id],
     function (error, results, fields){
         if(error || results.length <= 0){
             res.status(HttpStatus.NOT_FOUND);
@@ -251,7 +232,7 @@ router.delete('/:post_id', function (req, res) {
             if(password){
                 var post = results[0];
                 if(decrypt(password, serverKeycode) == post.password){
-                    db.query('DELETE FROM `post` WHERE `id`=? LIMIT 1', [req.params.post_id],
+                    req.db.query('DELETE FROM `post` WHERE `id`=? LIMIT 1', [req.params.post_id],
                     function (error, results) {
                         if(error){
                             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -278,7 +259,7 @@ router.delete('/:post_id', function (req, res) {
 
 router.put('/:post_id', function (req, res) {
     // console.log(req.body);
-    db.query('SELECT * FROM `post` WHERE `id`=? LIMIT 1', [req.params.post_id], function (error, results, fields){
+    req.db.query('SELECT * FROM `post` WHERE `id`=? LIMIT 1', [req.params.post_id], function (error, results, fields){
         if(error){
             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
             res.send(error);
@@ -292,7 +273,7 @@ router.put('/:post_id', function (req, res) {
                 }
             }
             post.modify_time = (new Date()).toISOString().substring(0, 19).replace('T', ' ');
-            db.query('UPDATE `post` SET ? WHERE `id`=?', [post, req.params.post_id],
+            req.db.query('UPDATE `post` SET ? WHERE `id`=?', [post, req.params.post_id],
             function (error, results) {
                 if(error){
                     res.status(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -309,7 +290,7 @@ router.put('/:post_id', function (req, res) {
 });
 
 router.get('/:post_id/comments', function (req, res) {
-    db.query('SELECT * FROM `comment` WHERE `post_id`=?', [req.params.post_id], function (error, results, fields) {
+    req.db.query('SELECT * FROM `comment` WHERE `post_id`=?', [req.params.post_id], function (error, results, fields) {
         if(error){
             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
             res.json(error);
@@ -322,14 +303,14 @@ router.get('/:post_id/comments', function (req, res) {
 
 router.post('/:post_id/comments', function (req, res) {
     req.body.post_id = req.params.post_id;
-    db.query('INSERT INTO `comment` SET ?', req.body,
+    req.db.query('INSERT INTO `comment` SET ?', req.body,
         function(error, result){
             if(error){
                 res.status(HttpStatus.INTERNAL_SERVER_ERROR);
                 res.json(error);
             }
             else{
-                db.query('SELECT * FROM `comment` WHERE `id`=?', result.insertId,
+                req.db.query('SELECT * FROM `comment` WHERE `id`=?', result.insertId,
                     function (error, results) {
                         if(error){
                             res.status(HttpStatus.INTERNAL_SERVER_ERROR);
