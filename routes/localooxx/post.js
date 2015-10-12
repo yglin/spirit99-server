@@ -23,7 +23,7 @@ function decrypt(text, password){
 var mysql = require('mysql');
 if(process.env.NODE_ENV == 'production'){
   var db = mysql.createConnection({
-    host     : 'aa1ldh0f8yn0wcq.c9n0qaroyipe.ap-northeast-1.rds.amazonaws.com',
+    host     : 'aaf3pm3afiykuv.c9n0qaroyipe.ap-northeast-1.rds.amazonaws.com',
     user     : 'spirit99',
     password : 'ru.3g6ru.3gp6',
     port     : 3306,
