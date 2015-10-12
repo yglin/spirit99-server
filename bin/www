@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('localstory:server');
+var debug = require('debug')('nuclear-waste:server');
 var http = require('http');
 
 /**

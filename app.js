@@ -5,29 +5,15 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-// Database Connection
-var mysql = require('mysql');
-var dbConnection = mysql.createConnection({
-    host: 'localhost',
-    database: 'localstory',
-    user: 'yglin',
-    password: 'Mlanser0419'
-});
-// dbConnection.connect(function(error){
-//     if(error){
-//         console.error('error connecting: ' + err.stack);
-//         return;
-//     }
-//     console.log('connected as id ' + dbConnection.threadId);
-// });
-// dbConnection.end();
-
 var routes = require('./routes/index');
-var portal = require('./routes/portal');
-var posts = require('./routes/posts');
-var relations = require('./routes/relations');
+// var users = require('./routes/users');
+// var portal = require('./routes/portal');
+// var post = require('./routes/post');
+
 
 var app = express();
+
+console.log(process.env.NODE_ENV);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,12 +26,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function(req, res, next){
-    req.db = dbConnection;
-    next();
-});
 
-// Add headers
+// // Bind database connection to req for routers to use it.
+// app.use(function(req, res, next){
+//     req.db = dbConnection;
+//     next();
+// });
+
+// Add headers for restful access
 app.use(function (req, res, next) {
 
     // Website you wish to allow to connect
@@ -55,7 +43,7 @@ app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, HEAD, PUT, PATCH, DELETE');
 
     // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'origin, x-http-method-override, accept, content-type, authorization, x-pingother, if-match, if-modified-since, if-none-match, if-unmodified-since, x-requested-with');
+    res.setHeader('Access-Control-Allow-Headers', 'origin, x-http-method-override, accept, content-type, authorization, x-pingother, if-match, if-modified-since, if-none-match, if-unmodified-since, x-requested-with, password');
 
     res.setHeader('Access-Control-Expose-Headers', 'tag, link, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes');
 
@@ -68,11 +56,12 @@ app.use(function (req, res, next) {
 });
 
 
-//app.use('/', routes);
-//app.use('/users', users);
-app.use('/portal', portal);
-app.use('/posts', posts);
-app.use('/relations', relations);
+app.use('/', routes);
+// app.use('/users', users);
+// app.use('/portal', portal);
+// app.use('/posts', post);
+app.use('/nuclear-waste', require('./routes/nuclear-waste/index'));
+app.use('/localooxx', require('./routes/localooxx/index'));
 
 
 // catch 404 and forward to error handler
