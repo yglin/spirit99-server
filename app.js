@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
 var routes = require('./routes/index');
 // var users = require('./routes/users');
 // var portal = require('./routes/portal');
@@ -26,6 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('static_path', path.join(__dirname, 'public'));
 
 // // Bind database connection to req for routers to use it.
 // app.use(function(req, res, next){

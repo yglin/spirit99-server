@@ -26,5 +26,6 @@ router.use(function (req, res, next) {
 
 router.use('/portal', require('./portal'));
 router.use('/posts', require('./post'));
+router.use('/upload', require('./upload'));
 
 module.exports = router;
