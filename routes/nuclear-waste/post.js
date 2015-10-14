@@ -403,29 +403,32 @@ router.delete('/:post_id/statistics/:id', function (req, res) {
             res.send(error);
             console.log(error);
         }
-        else if('password' in req.query){
-            var post = results[0];
-            if(decrypt(req.query.password, serverKeycode) == post.password){
-                req.db.query('DELETE FROM `statistic` WHERE `id`=? LIMIT 1', [req.params.id],
-                function (error, results) {
-                    if(error){
-                        res.status(HttpStatus.INTERNAL_SERVER_ERROR);
-                        res.json(error);
-                        console.log(error);
-                    }
-                    else{
-                        res.send(results);
-                    }
-                });
+        else{
+            var password = req.get('password');
+            if(password){
+                var post = results[0];
+                if(decrypt(password, serverKeycode) == post.password){
+                    req.db.query('DELETE FROM `statistic` WHERE `id`=? LIMIT 1', [req.params.id],
+                    function (error, results) {
+                        if(error){
+                            res.status(HttpStatus.INTERNAL_SERVER_ERROR);
+                            res.json(error);
+                            console.log(error);
+                        }
+                        else{
+                            res.send(results);
+                        }
+                    });
+                }
+                else{
+                    res.status(HttpStatus.UNAUTHORIZED);
+                    res.send("Incorrect password, you may not be the owner of this post");                
+                }
             }
             else{
                 res.status(HttpStatus.UNAUTHORIZED);
-                res.send("Incorrect password, you may not be the owner of this post");                
+                res.send("Incorrect password, you may not be the owner of this post");        
             }
-        }
-        else{
-            res.status(HttpStatus.UNAUTHORIZED);
-            res.send("Incorrect password, you may not be the owner of this post");        
         }
     });
 
