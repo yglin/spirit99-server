@@ -363,7 +363,6 @@ router.post('/:post_id/statistics', function (req, res) {
                             res.json(error);                        
                         }
                         else{
-                            console.log(error);
                             res.status(HttpStatus.CREATED);
                             res.json(results[0]);
                         }
