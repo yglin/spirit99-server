@@ -1,7 +1,7 @@
 var express = require('express');
 var HttpStatus = require('http-status-codes');
 var fs = require('fs');
-var mime = require('mime-types')
+var mime = require('mime-types');
 var multer  = require('multer');
 var mkdirp = require('mkdirp');
 
@@ -17,9 +17,9 @@ router.post('/', upload.single('imageFile'), function (req, res) {
         }
         else{
             var source = fs.createReadStream(req.file.path);
-            var destFilepath = '/uploads/nuclear-waste/' + req.file.filename + '.'
+            var destFilepath = '/uploads/localooxx/' + req.file.filename + '.'
             + (mime.extension(req.file.mimetype) ? mime.extension(req.file.mimetype) : '');
-            mkdirp(req.app.get('static_path') + '/uploads/nuclear-waste/');
+            mkdirp(req.app.get('static_path') + '/uploads/localooxx/');
             var dest = fs.createWriteStream(req.app.get('static_path') + destFilepath);
             dest.on('finish', function () {
                 fs.unlink(req.file.path);
