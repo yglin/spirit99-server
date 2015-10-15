@@ -7,7 +7,7 @@ var upload = multer({dest: '/tmp/'});
 
 var router = express.Router();
 
-router.post('/', upload.single('file'), function (req, res) {
+router.post('/', upload.single('imageFile'), function (req, res) {
     if(req.file){
         if(req.file.size <= 0){
             res.status(HttpStatus.BAD_REQUEST);
