@@ -11,8 +11,7 @@ router.get('/', function(req, res, next) {
         portalUrl: req.protocol + '://' + req.get('host') + '/nuclear-waste/portal',
         postUrl: req.protocol + '://' + req.get('host') + '/nuclear-waste/posts',
         commentUrl: req.protocol + '://' + req.get('host') + '/nuclear-waste/posts/:post_id/comments',
-        uploadUrl: req.protocol + '://' + req.get('host') + '/nuclear-waste/upload',
-        uploadParamName: 'imageFile',
+        uploadToS3ConfigUrl: req.protocol + '://' + req.get('host') + '/nuclear-waste/upload/aws-s3-config',
         logo: 'https://yt3.ggpht.com/-Gd9lF_AqQPk/AAAAAAAAAAI/AAAAAAAAAAA/afbtVZjs18E/s88-c-k-no/photo.jpg',
         iconSet: {
             sweat: 'http://findicons.com/files/icons/2020/2s_space_emotions/128/sweat.png',

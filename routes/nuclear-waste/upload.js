@@ -4,6 +4,8 @@ var fs = require('fs');
 var mime = require('mime-types')
 var multer  = require('multer');
 var mkdirp = require('mkdirp');
+var moment = require('moment');
+var crypto = require('crypto');
 
 var upload = multer({dest: '/tmp/'});
 
@@ -30,6 +32,34 @@ router.post('/', upload.single('imageFile'), function (req, res) {
             source.pipe(dest);
         }
     }
+});
+
+router.get('/aws-s3-config', function (req, res) {
+    var s3Config = {
+        bucket: 'spirit99',
+        region: 's3',
+        keyStart: 'uploads/',
+        acl: 'public-read',
+        accessKeyId: process.env.AWS_S3_ACCESS_KEY_ID
+    };
+
+    s3Config.policy = {
+        expiration: moment().add(1, 'days').toISOString(),
+        conditions: [
+            { bucket: s3Config.bucket },
+            { acl: s3Config.acl },
+            { success_action_status: '201' },
+            { 'x-requested-with': 'xhr' },
+            [ 'starts-with', '$key', s3Config.keyStart ],
+            [ 'starts-with', '$Content-Type', '' ]
+        ]
+    };
+    s3Config.policy = new Buffer(JSON.stringify(s3Config.policy)).toString('base64');
+
+    var hash = crypto.createHmac('sha1', process.env.AWS_S3_SECRET_ACCESS_KEY);
+    s3Config.signature = new Buffer(hash.update(s3Config.policy).digest()).toString('base64');
+
+    res.json(s3Config);
 });
 
 module.exports = router;
