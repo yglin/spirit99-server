@@ -4,23 +4,9 @@ var mysql = require('mysql');
 
 router.use(function (req, res, next) {
     // Set up connection to mysql DB
-    if(process.env.NODE_ENV == 'production'){
-      req.db = mysql.createConnection({
-        host     : process.env.DB_HOST,
-        user     : process.env.DB_USER,
-        password : process.env.DB_PASSWORD,
-        port     : process.env.DB_PORT,
-        database : 'localooxx'
-      });
-    }
-    else{
-      req.db = mysql.createConnection({
-        host: 'localhost',
-        user: 'yglin',
-        password: 'turbogan',
-        database: 'localooxx',
-      });    
-    }
+    var dbOptions = req.app.get('dbOptions');
+    dbOptions.database = 'localooxx';
+    req.db = mysql.createConnection(dbOptions);
     next();
 });
 

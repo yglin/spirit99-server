@@ -27,13 +27,27 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Set app global vars
 app.set('static_path', path.join(__dirname, 'public'));
 
-// // Bind database connection to req for routers to use it.
-// app.use(function(req, res, next){
-//     req.db = dbConnection;
-//     next();
-// });
+// Set database connection options
+if(process.env.NODE_ENV == 'production'){
+  app.set('dbOptions', {
+    host     : process.env.DB_HOST,
+    user     : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    port     : process.env.DB_PORT
+  });
+}
+else{
+  app.set('dbOptions', {
+    host: 'localhost',
+    user: 'yglin',
+    password: 'turbogan'
+  });    
+}
+
 
 // Add headers for restful access
 app.use(function (req, res, next) {
