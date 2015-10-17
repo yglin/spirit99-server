@@ -8,6 +8,11 @@ router.use(function (req, res, next) {
     dbOptions.database = 'nuclear_waste';
     req.db = mysql.createConnection(dbOptions);
     next();
+    req.db.end(function (error) {
+        if(error){
+            console.log(error);
+        }
+    });
 });
 
 router.use('/portal', require('./portal'));
