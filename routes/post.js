@@ -4,6 +4,24 @@ var mysql = require('mysql');
 
 var router = express.Router();
 
+var crypto = require('crypto'),
+    algorithm = 'aes-256-ctr',
+    serverKeycode = 'ru.3g6ru.3gp6';
+
+function encrypt(text, password){
+  var cipher = crypto.createCipher(algorithm,password)
+  var crypted = cipher.update(text,'utf8','hex')
+  crypted += cipher.final('hex');
+  return crypted;
+}
+ 
+function decrypt(text, password){
+  var decipher = crypto.createDecipher(algorithm,password)
+  var dec = decipher.update(text,'hex','utf8')
+  dec += decipher.final('utf8');
+  return dec;
+}
+
 router.get('/', function(req, res){
     var sql = 'SELECT ';
     
@@ -216,21 +234,15 @@ router.put('/:id', function (req, res) {
                     connection.release();
                 }
                 else{
+                    var password = req.get('password');
                     var post = results[0];
-                    if(!('password' in req.body) || req.body.password === null
-                    || decrypt(req.body.password, serverKeycode) != post.password){
-                        res.status(HttpStatus.UNAUTHORIZED);
-                        res.send("Incorrect password, you may not be the owner of this post");
-                        connection.release();
-                    }
-                    else{
-                        for(var key in post){
-                            if(key in req.body && key != 'id' && key != 'create_time' && key != 'password'){
-                                post[key] = req.body[key];
-                            }
-                        }
-                        post.modify_time = (new Date()).toISOString().substring(0, 19).replace('T', ' ');
-                        req.db.query('UPDATE `post` SET ? WHERE `id`=?', [post, req.params.id],
+                    if(password && decrypt(password, serverKeycode) == post.password){
+                        // Can not update below fields, forbidden.
+                        delete req.body.id;
+                        delete req.body.create_time;
+                        delete req.body.password;
+                        delete req.body.modify_time;
+                        connection.query('UPDATE `post` SET ? WHERE `id`=?', [req.body, req.params.id],
                         function (error, results) {
                             if(error){
                                 res.status(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -238,12 +250,19 @@ router.put('/:id', function (req, res) {
                                 console.log(error);
                             }
                             else{
-                                // console.log(post);
-                                post.modify_time = new Date(post.modify_time);
+                                for (var key in req.body){
+                                    post[key] = req.body[key];
+                                }
+                                post.modify_time = new Date();
                                 res.json(post);
                             }
                             connection.release();
                         });                        
+                    }
+                    else{
+                        res.status(HttpStatus.UNAUTHORIZED);
+                        res.send("Incorrect password, you may not be the owner of this post");
+                        connection.release();
                     }
                 }
             });
