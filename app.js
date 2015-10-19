@@ -4,7 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var HttpStatus = require('http-status-codes');
+var mysql = require('mysql');
 
 var routes = require('./routes/index');
 // var users = require('./routes/users');
@@ -14,7 +15,11 @@ var routes = require('./routes/index');
 
 var app = express();
 
-console.log(process.env.NODE_ENV);
+app.stations = require('./stations.json');
+
+console.log('NODE_ENV = ' + process.env.NODE_ENV);
+console.log('Stations data: ');
+console.log(app.stations);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,22 +38,30 @@ app.set('static_path', path.join(__dirname, 'public'));
 
 // Set database connection options
 if(process.env.NODE_ENV == 'production'){
-  app.set('dbOptions', {
+  var dbOptions = {
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
+    connectionLimit: 100
     // ssl: 'Amazon RDS'
-  });
+  };
 }
 else{
-  app.set('dbOptions', {
+  var dbOptions = {
     host: 'localhost',
     user: 'yglin',
-    password: 'turbogan'
-  });    
+    password: 'turbogan',
+    connectionLimit: 100
+  };    
 }
 
+// Create mysql pool clusters
+app.mysqlPoolCluster = mysql.createPoolCluster();
+for(var name in app.stations){
+  dbOptions.database = app.stations[name].database;
+  app.mysqlPoolCluster.add(name, dbOptions);
+}
 
 // Add headers for restful access
 app.use(function (req, res, next) {
@@ -72,13 +85,23 @@ app.use(function (req, res, next) {
     next();
 });
 
+app.use('/:station', function (req, res, next) {
+    if(req.params.station && req.params.station in app.stations){
+        req.station = req.params.station;
+        next();
+    }
+    else{
+        res.status(HttpStatus.NOT_FOUND);
+        res.send('Can not found station: ' + req.params.station);
+    }
+}, routes);
 
-app.use('/', routes);
+// app.use('/', routes);
 // app.use('/users', users);
 // app.use('/portal', portal);
 // app.use('/posts', post);
-app.use('/nuclear-waste', require('./routes/nuclear-waste/index'));
-app.use('/localooxx', require('./routes/localooxx/index'));
+// app.use('/nuclear-waste', require('./routes/nuclear-waste/index'));
+// app.use('/localooxx', require('./routes/localooxx/index'));
 
 
 // catch 404 and forward to error handler
