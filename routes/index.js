@@ -2,6 +2,7 @@ var express = require('express');
 var HttpStatus = require('http-status-codes');
 
 var post = require('./post');
+var comment = require('./comment');
 
 var router = express.Router();
 
@@ -25,5 +26,11 @@ router.get('/portal', function (req, res) {
 });
 
 router.use('/posts', post);
+router.use('/posts/:post_id/comments',
+function (req, res, next) {
+    // console.log(req.params);
+    req.post_id = req.params.post_id;
+    next();
+}, comment);
 
 module.exports = router;

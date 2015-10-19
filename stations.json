@@ -30,14 +30,14 @@
             },
             "urls": {
                 "portalUrl": "portal",
-                "postUrl": "posts"
-            },
-            "followPostBy": ["modify_time"]
+                "postUrl": "posts",
+                "commentUrl": "posts/:post_id/comments"
+            }
         },
         "recycle-bin": {
-            "commentUrl": "posts/:post_id/comments",
             "statisticUrl": "posts/:post_id/statistics",
-            "uploadToS3ConfigUrl": "upload/aws-s3-config"
+            "uploadToS3ConfigUrl": "upload/aws-s3-config",
+            "followPostBy": ["modify_time"]
         }
     },
     "localooxx": {
