@@ -36,8 +36,6 @@
                 "uploadToS3ConfigUrl": "upload/aws-s3-config"
             },
             "followPostBy": ["modify_time"]
-        },
-        "recycle-bin": {
         }
     },
     "localooxx": {
@@ -57,8 +55,12 @@
             },
             "urls": {
                 "portalUrl": "portal",
-                "postUrl": "posts"
-            }
+                "postUrl": "posts",
+                "commentUrl": "posts/:post_id/comments",
+                "voteUrl": "posts/:post_id/votes",
+                "uploadToS3ConfigUrl": "upload/aws-s3-config"
+            },
+            "followPostBy": ["modify_time"]
         }
     }
 }
