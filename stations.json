@@ -34,10 +34,10 @@
                 "commentUrl": "posts/:post_id/comments",
                 "voteUrl": "posts/:post_id/votes",
                 "uploadToS3ConfigUrl": "upload/aws-s3-config"
-            }
+            },
+            "followPostBy": ["modify_time"]
         },
         "recycle-bin": {
-            "followPostBy": ["modify_time"]
         }
     },
     "localooxx": {
