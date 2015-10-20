@@ -32,11 +32,11 @@
                 "portalUrl": "portal",
                 "postUrl": "posts",
                 "commentUrl": "posts/:post_id/comments",
-                "voteUrl": "posts/:post_id/votes"
+                "voteUrl": "posts/:post_id/votes",
+                "uploadToS3ConfigUrl": "upload/aws-s3-config"
             }
         },
         "recycle-bin": {
-            "uploadToS3ConfigUrl": "upload/aws-s3-config",
             "followPostBy": ["modify_time"]
         }
     },

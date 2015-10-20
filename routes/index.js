@@ -4,6 +4,7 @@ var HttpStatus = require('http-status-codes');
 var post = require('./post');
 var comment = require('./comment');
 var vote = require('./vote');
+var upload = require('./upload');
 
 var router = express.Router();
 
@@ -40,5 +41,6 @@ function (req, res, next) {
     next();
 }, vote);
 
+router.use('/upload', upload);
 
 module.exports = router;
