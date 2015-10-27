@@ -16,7 +16,9 @@ router.get('/portal', function (req, res) {
         }
         if('urls' in portalData){
             for(var key in portalData.urls){
-                portalData.urls[key] = req.protocol + '://' + req.get('host') + '/' + req.station + '/' + portalData.urls[key];
+                portalData.urls[key] = portalData.urls[key].replace(':protocol', req.protocol);
+                portalData.urls[key] = portalData.urls[key].replace(':host', req.get('host'));
+                portalData.urls[key] = portalData.urls[key].replace(':station', req.station);
             }
         }
         res.json(portalData);

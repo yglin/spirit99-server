@@ -29,11 +29,12 @@
                 "cool": "http://findicons.com/files/icons/2020/2s_space_emotions/128/cool.png"
             },
             "urls": {
-                "portalUrl": "portal",
-                "postUrl": "posts",
-                "commentUrl": "posts/:post_id/comments",
-                "voteUrl": "posts/:post_id/votes",
-                "uploadToS3ConfigUrl": "upload/aws-s3-config"
+                "portalUrl": ":protocol://:host/:station/portal",
+                "postUrl": ":protocol://:host/:station/posts",
+                "commentUrl": ":protocol://:host/:station/posts/:post_id/comments",
+                "voteUrl": ":protocol://:host/:station/posts/:post_id/votes",
+                "uploadToS3ConfigUrl": ":protocol://:host/:station/upload/aws-s3-config",
+                "reportIssueUrl": ":protocol://:host/spirit99/issues"
             },
             "followPostBy": ["modify_time"]
         }
@@ -54,11 +55,12 @@
                 "樂": "http://prazdnikdetyam.by/sites/default/files/freephile_balloons.png"
             },
             "urls": {
-                "portalUrl": "portal",
-                "postUrl": "posts",
-                "commentUrl": "posts/:post_id/comments",
-                "voteUrl": "posts/:post_id/votes",
-                "uploadToS3ConfigUrl": "upload/aws-s3-config"
+                "portalUrl": ":protocol://:host/:station/portal",
+                "postUrl": ":protocol://:host/:station/posts",
+                "commentUrl": ":protocol://:host/:station/posts/:post_id/comments",
+                "voteUrl": ":protocol://:host/:station/posts/:post_id/votes",
+                "uploadToS3ConfigUrl": ":protocol://:host/:station/upload/aws-s3-config",
+                "reportIssueUrl": ":protocol://:host/spirit99/issues"
             },
             "followPostBy": ["modify_time"]
         }

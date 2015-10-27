@@ -6,8 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var HttpStatus = require('http-status-codes');
 var mysql = require('mysql');
+var requestIp = require('request-ip');
 
+// Routers
 var routes = require('./routes/index');
+var spirit99 = require('./routes/spirit99');
 // var users = require('./routes/users');
 // var portal = require('./routes/portal');
 // var post = require('./routes/post');
@@ -36,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Set app global vars
 app.set('static_path', path.join(__dirname, 'public'));
 
+
 // Set database connection options
 if(process.env.NODE_ENV == 'production'){
   var dbOptions = {
@@ -58,6 +62,8 @@ else{
 
 // Create mysql pool clusters
 app.mysqlPoolCluster = mysql.createPoolCluster();
+dbOptions.database = 'spirit99';
+app.mysqlPoolCluster.add('spirit99', dbOptions);
 for(var name in app.stations){
   dbOptions.database = app.stations[name].database;
   app.mysqlPoolCluster.add(name, dbOptions);
@@ -84,6 +90,14 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+
+// Get client ip address
+app.use(function (req, res, next) {
+    req.clientIp = requestIp.getClientIp(req);
+    next();
+});
+
+app.use('/spirit99', spirit99);
 
 app.use('/:station', function (req, res, next) {
     if(req.params.station && req.params.station in app.stations){
