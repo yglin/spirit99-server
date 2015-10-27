@@ -128,10 +128,15 @@ router.delete('/:id', function (req, res) {
         else{    
             connection.query('SELECT * FROM `post` WHERE `id`=? LIMIT 1', [req.post_id],
             function (error, results){
-                if(error || results.length <= 0){
+                if(error){
                     console.log(error);
-                    res.status(HttpStatus.NOT_FOUND);
+                    res.status(HttpStatus.INTERNAL_SERVER_ERROR);
                     res.send(error);
+                    connection.release();
+                }
+                else if(results.length <= 0){
+                    res.status(HttpStatus.NOT_FOUND);
+                    res.send('Can not find post with id = ' + req.post_id);
                     connection.release();
                 }
                 else{

@@ -100,9 +100,6 @@ router.get('/', function(req, res){
                     res.status(HttpStatus.INTERNAL_SERVER_ERROR);
                     res.send(error);
                 }
-                else if(results.length <= 0){
-                    res.status(HttpStatus.NOT_FOUND).end();
-                }
                 else{
                     var links = {};
                     if('pageOffset' in req.query && 'pageSize' in req.query){
