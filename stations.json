@@ -36,6 +36,40 @@
                 "uploadToS3ConfigUrl": ":protocol://:host/:station/upload/aws-s3-config",
                 "reportIssueUrl": ":protocol://:host/spirit99/issues"
             },
+            "soundSet": {
+                "focusOnPost":{
+                    "file": "https://s3-ap-northeast-1.amazonaws.com/spirit99/sounds/cartoon_hop.mp3",
+                    "volume": 0.5
+                },
+                "openPostList": {
+                    "file": "https://s3-ap-northeast-1.amazonaws.com/spirit99/sounds/comedy_slide_whistle_up_002.mp3",
+                    "volume": 0.5
+                },
+                "closePostList": {
+                    "file": "https://s3-ap-northeast-1.amazonaws.com/spirit99/sounds/comedy_slide_whistle_down_002.mp3",
+                    "volume": 0.5
+                },
+                "toggleIconCtrl": {
+                    "file": "https://s3-ap-northeast-1.amazonaws.com/spirit99/sounds/cartoon_mouse_says_uh_oh.mp3",
+                    "volume": 0.5
+                },
+                "openPostEditor": {
+                    "file": "https://s3-ap-northeast-1.amazonaws.com/spirit99/sounds/comedy_zips_pops_and_bonks.mp3",
+                    "volume": 0.5
+                },
+                "openPostView": {
+                    "file": "https://s3-ap-northeast-1.amazonaws.com/spirit99/sounds/comedy_single_toot_of_a_bicycle_horn.mp3",
+                    "volume": 0.5
+                },
+                "onError": {
+                    "file": "https://s3-ap-northeast-1.amazonaws.com/spirit99/sounds/comedy_accent_crash_and_burn.mp3",
+                    "volume": 0.5
+                },
+                "openStationIntro": {
+                    "file": "https://s3-ap-northeast-1.amazonaws.com/spirit99/sounds/cartoon_mouse_laughter_version_1.mp3",
+                    "volume": 0.5
+                }
+            },
             "followPostBy": ["modify_time"]
         }
     },
