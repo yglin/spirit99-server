@@ -86,7 +86,8 @@
                 "住": "http://icons.iconarchive.com/icons/iconshock/smurf/256/smurf-house-icon.png",
                 "行": "https://cdn1.iconfinder.com/data/icons/professional-toolbar-icons-png/64/Run.png",
                 "育": "http://netkosh.com/images/classified/education_icon.png",
-                "樂": "http://prazdnikdetyam.by/sites/default/files/freephile_balloons.png"
+                "樂": "http://prazdnikdetyam.by/sites/default/files/freephile_balloons.png",
+                "倉庫": "https://cdn3.iconfinder.com/data/icons/mixed-3d-icons/512/Warehouse_icon_3D_rev-48.png"
             },
             "urls": {
                 "portalUrl": ":protocol://:host/:station/portal",
