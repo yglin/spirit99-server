@@ -21,12 +21,21 @@ router.get('/portal', function (req, res) {
                 portalData.urls[key] = portalData.urls[key].replace(':station', req.station);
             }
         }
+        if('intro' in portalData){
+            portalData.intro = portalData.intro.replace(':protocol', req.protocol)
+                                .replace(':host', req.get('host'))
+                                .replace(':station', req.station);
+        }
         res.json(portalData);
     }
     else{
         res.status(HttpStatus.NOT_FOUND);
         res.send('Can not find portal data of station: ' + req.station);
     }
+});
+
+router.get('/intro', function (req, res) {
+    res.sendFile(req.app.get('static_path') + '/views/' + req.station + '-intro.html');
 });
 
 router.use('/posts', post);
