@@ -45,6 +45,13 @@ router.post('/', function (req, res) {
                     res.send(error);
                 }
                 else{
+                    connection.query('UPDATE `post` SET `modify_time` = NOW() WHERE `id` = ?', [req.post_id],
+                    function (error, result) {
+                        if(error){
+                            console.log(error);
+                        }
+                    });
+
                     connection.query('SELECT * FROM `comment` WHERE `id`=?', result.insertId,
                     function (error, results) {
                         if(error){
