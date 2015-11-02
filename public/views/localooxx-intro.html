@@ -36,6 +36,10 @@ h2{
     font-family:Comic Sans MS, DFKai-sb, PMingLiU, MingLiU, serif;
     color:#dd7700;
 }
+em{
+    color: #663300;
+    font-size: 120%;
+}
 </style>
 <body>
 <h2>
@@ -52,21 +56,38 @@ h2{
 
 <h3 id='howtos'>我要如何。。。</h3>
 <ul>
+    <li><a href='#howtos01'>發佈、修改或刪除文章</a></li>
+    <li><a href='#howtos02'>檢視、瀏覽或搜尋文章、過濾文章顯示</a></li>
+    <li><a href='#howtos03'>更改一些偏好設定</a></li>
+</ul>
+<hr>
+<ul id='howtos01'>
     <li><a href='#howto01'>發佈文章說這個地點有東西要贈送出去</a></li>
-    <li><a href='#howto13'>檢視文章內容</a></li>
     <li><a href='#howto12'>更改或刪除我發佈的文章</a></li>
     <li><a href='#howto14'>更改文章在地圖上的位置</a></li>
-    <li><a href='#howto05'>瀏覽目前地區內的所有文章列表</a></li>
+    <li><a href='#howto03'>選擇地圖上顯示的標示</a></li>    
+</ul>
+<div style='text-align:right;'><a href='#howtos'>回到<b>我要如何。。。</b></a></div>
+<hr>
+<ul id='howtos02'>
     <li><a href='#howto02'>在地圖上找到我家，用地址或是地名找到某個特定地點</a></li>
-    <li><a href='#howto03'>選擇地圖上顯示的標示</a></li>
+    <li><a href='#howto13'>檢視文章內容</a></li>
+    <li><a href='#howto05'>瀏覽目前地區內的所有文章列表</a></li>
     <li><a href='#howto07'>以關鍵字搜尋文章標題</a></li>
     <li><a href='#howto08'>顯示我感興趣的分類(地圖標示)</a></li>
     <li><a href='#howto09'>顯示某段時間(日期)內發佈的文章</a></li>
     <li><a href='#howto10'>顯示：我發佈的文章／我留言的文章／我追蹤的文章</a></li>
     <li><a href='#howto11'>什麼是我追蹤的文章？</a></li>
+</ul>
+<div style='text-align:right;'><a href='#howtos'>回到<b>我要如何。。。</b></a></div>
+<hr>
+<ul id='howtos03'>
     <li><a href='#howto04'>更改每次網頁開啟時，顯示的地區範圍</a></li>
     <li><a href='#howto06'>關掉／開啟文章列表自動跳出</a></li>
+    <li><a href='#howto15'>音效太吵了我要關掉</a></li>
 </ul>
+<div style='text-align:right;'><a href='#howtos'>回到<b>我要如何。。。</b></a></div>
+<hr>
 
 <h3 id='howto01'>發佈文章說這個地點有東西要贈送出去</h3>
 <p>在地圖上，<a href='#howto02'>找到要贈送的物品所在的地點</a>，用滑鼠點一下那個地點，便會出現如下的編輯文章的視窗</p>
@@ -105,7 +126,7 @@ h2{
 
 <h3 id='howto02'>在地圖上找到我家，用地址或是地名找到某個特定地點</h3>
 <p>這個網站預設每次開啟時顯示你所在的地區，當瀏覽器詢問是否允許網站偵測你的位置時，點允許即可。
-之後每次開啟或重新刷新網頁，會顯示以你為中心所在的鄰近地區除非<a href='howto04'>更改設定</a></p>
+之後每次開啟或重新刷新網頁，會顯示以你為中心所在的鄰近地區除非<a href='#howto04'>更改設定</a></p>
 <p>如果要以地址或地名查詢，點左上角圓形按鈕，會出現工具群組選單，選擇<i class="material-icons">my_location</i>這個工具，便會出現可輸入地址或地名的欄位，如下圖所示</p>
 <div>
   <img width='60%' src="https://s3-ap-northeast-1.amazonaws.com/spirit99/public/images/howtos/screenshot04.png"/>
@@ -204,6 +225,45 @@ h2{
 則地圖標示會上下跳動，提示你檢視文章中有新的內容。
 </p>
 <p><em>自己發布</em>，或是自己有<em>留言過的文章</em>，預設會自動加追蹤</p>
+<div style='text-align:right;'><a href='#howtos'>回到<b>我要如何。。。</b></a></div>
+
+<h3 id='howto04'>更改每次網頁開啟時，顯示的地區範圍</h3>
+<p>
+點左上角的<i class='material-icons'>menu</i>按鈕，右側跳出功能選單。
+再點<i class='material-icons'>settings</i>按鈕，開啟使用者設定的面板，如下圖。
+</p>
+<div><img width='60%' src="https://s3-ap-northeast-1.amazonaws.com/spirit99/public/images/howtos/screenshot15.png"/></div>
+<em>開啟網站時，顯示的地區範圍：</em>有下面三個選項
+<ul>
+    <li>自動定位我的位置:<br>
+        每次網站開啟時，顯示你所在位置的鄰近地區。<br>
+        <em>注意：當出現詢問視窗，詢問是否讓瀏覽器存取你的位置時，需要選擇允許，否則這個選項將無效。</em>
+    </li>
+    <li>上一次瀏覽的地區：<br>
+        顯示上一次關閉網頁時，地圖所顯示的範圍
+    </li>
+    <li>使用地區首頁：<br>
+        每次開啟網頁都顯示同一個地區範圍，點<em>設定首頁</em>按鈕可將目前地圖顯示的範圍儲存為地區首頁
+    </li>
+</ul>
+<div style='text-align:right;'><a href='#howtos'>回到<b>我要如何。。。</b></a></div>
+
+<h3 id='howto06'>關掉／開啟文章列表自動跳出</h3>
+<p>預設當滑鼠指標停在地圖標示上超過三秒，左方的文章列表會自動跳出，這個行為可以在使用這設定面板中關掉／開啟
+點左上角的<i class='material-icons'>menu</i>按鈕，右側跳出功能選單。
+再點<i class='material-icons'>settings</i>按鈕，開啟使用者設定的面板，如下圖。
+</p>
+<div><img width='60%' src="https://s3-ap-northeast-1.amazonaws.com/spirit99/public/images/howtos/screenshot16.png"/></div>
+<p>勾選<em>滑鼠指標停住地圖標示上方3秒後，自動開啟文章列表</em></p>
+<div style='text-align:right;'><a href='#howtos'>回到<b>我要如何。。。</b></a></div>
+
+<h3 id='howto15'>音效太吵了我要關掉</h3>
+<p>
+點左上角的<i class='material-icons'>menu</i>按鈕，右側跳出功能選單。
+再點<i class='material-icons'>settings</i>按鈕，開啟使用者設定的面板，如下圖。
+</p>
+<div><img width='60%' src="https://s3-ap-northeast-1.amazonaws.com/spirit99/public/images/howtos/screenshot17.png"/></div>
+<p>將<em>開啟網站音效</em>選項勾掉</p>
 <div style='text-align:right;'><a href='#howtos'>回到<b>我要如何。。。</b></a></div>
 
 </body>
