@@ -77,7 +77,7 @@
         "database": "localooxx",
         "portal": {
             "name": "localooxx",
-            "title": "地方的ＯＯ需要ＸＸ",
+            "title": "呆呆要不要借醬右",
             "intro": ":protocol://:host/:station/intro",
             "logo": "https://www.evansville.edu/residencelife/images/greenLogo.png",
             "iconSet": {
@@ -93,7 +93,6 @@
                 "portalUrl": ":protocol://:host/:station/portal",
                 "postUrl": ":protocol://:host/:station/posts",
                 "commentUrl": ":protocol://:host/:station/posts/:post_id/comments",
-                "voteUrl": ":protocol://:host/:station/posts/:post_id/votes",
                 "uploadToS3ConfigUrl": ":protocol://:host/:station/upload/aws-s3-config",
                 "reportIssueUrl": ":protocol://:host/spirit99/issues"
             },
